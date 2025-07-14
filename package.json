@@ -1,0 +1,23 @@
+{
+  "name": "fantasy.tv",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "convex",
+    "mobile"
+  ],
+  "scripts": {
+    "dev": "convex dev",
+    "deploy": "convex deploy"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "convex": "^1.25.2"
+  }
+}
