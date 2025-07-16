@@ -1,5 +1,10 @@
 # fantasy.tv
 
+# TODO
+
+[ ] - More linting rules
+[ ] - Setup Expo development build
+
 # Setup
 
 Run `bun install` to install dependencies.
@@ -7,7 +12,16 @@ Run `bun install` to install dependencies.
 # Development
 
 - Run `bun dev` to start the backend Convex server.
+- Run `bun run dashboard` to open the Convex dashboard.
 - Run `cd mobile && bun run start` to start the mobile app.
+
+### Available Scripts
+
+- `bun run lint` - Run ESLint to check for code issues
+- `bun run lint:fix` - Run ESLint and automatically fix issues
+- `bun run format` - Format all files with Prettier
+- `bun run format:check` - Check if files are properly formatted
+- `bun run check` - Run both linting and format checking
 
 # Deployment
 

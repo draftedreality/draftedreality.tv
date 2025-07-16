@@ -1,5 +1,5 @@
 import { query } from './_generated/server';
 
 export const getAll = query({
-  handler: async (ctx) => ctx.db.query('test').collect(),
+  handler: async ctx => ctx.db.query('test').collect(),
 });
