@@ -1,5 +1,10 @@
 # fantasy.tv
 
+# TODO
+
+[ ] - More linting rules
+[ ] - Setup Expo development build
+
 # Setup
 
 Run `bun install` to install dependencies.
@@ -7,11 +12,8 @@ Run `bun install` to install dependencies.
 # Development
 
 - Run `bun dev` to start the backend Convex server.
+- Run `bun run dashboard` to open the Convex dashboard.
 - Run `cd mobile && bun run start` to start the mobile app.
-
-## Code Quality
-
-This project uses ESLint for linting and Prettier for code formatting.
 
 ### Available Scripts
 
@@ -20,30 +22,6 @@ This project uses ESLint for linting and Prettier for code formatting.
 - `bun run format` - Format all files with Prettier
 - `bun run format:check` - Check if files are properly formatted
 - `bun run check` - Run both linting and format checking
-
-### Pre-commit Workflow
-
-Before committing code, run:
-
-```bash
-bun run check
-```
-
-If there are formatting issues, run:
-
-```bash
-bun run format
-```
-
-### CI/CD
-
-The project includes a GitHub Actions workflow that automatically checks:
-
-- ESLint compliance
-- Prettier formatting
-- TypeScript compilation
-
-All pull requests must pass these checks before merging.
 
 # Deployment
 

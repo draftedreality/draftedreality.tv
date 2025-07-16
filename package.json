@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "convex dev",
     "deploy": "convex deploy",
+    "dashboard": "convex dashboard",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
