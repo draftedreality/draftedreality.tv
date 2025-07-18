@@ -10,7 +10,7 @@ import { api } from 'convex/_generated/api';
 import partialReactLogo from '@/assets/images/partial-react-logo.png';
 
 export default function HomeScreen() {
-  const example = useQuery(api.example.getAll);
+  const example = useQuery(api.example.getShows);
   console.log(example);
 
   return (
