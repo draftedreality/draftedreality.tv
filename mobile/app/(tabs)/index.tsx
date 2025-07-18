@@ -6,7 +6,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useQuery } from 'convex/react';
-import { api } from 'convex/_generated/api';
+import { api } from 'backend/_generated/api';
 import partialReactLogo from '@/assets/images/partial-react-logo.png';
 
 export default function HomeScreen() {

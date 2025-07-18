@@ -26,6 +26,6 @@
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false
   },
-  "include": ["index.ts", "convex/**/*"],
+  "include": ["index.ts", "backend/**/*"],
   "exclude": ["mobile/**/*", "node_modules"]
 }

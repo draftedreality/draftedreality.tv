@@ -10,7 +10,7 @@ build/
 out/
 
 # Generated files
-convex/_generated/
+*/_generated/
 *.lockb
 bun.lockb
 
@@ -58,6 +58,9 @@ Thumbs.db
 # Mobile specific
 mobile/.expo/
 mobile/dist/
+mobile/expo-env.d.ts
+mobile/ios/
+mobile/android/
 
 # Package files
 *.tgz

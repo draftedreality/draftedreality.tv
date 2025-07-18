@@ -43,6 +43,8 @@ export default [
       '**/node_modules/**',
       'convex/_generated/**',
       'mobile/.expo/**',
+      'mobile/android/**',
+      'mobile/ios/**',
       'bun.lockb',
       '**/*.config.js',
     ],
