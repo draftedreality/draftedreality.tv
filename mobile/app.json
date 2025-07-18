@@ -10,7 +10,7 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.billzaboob.fantasytvmobile",
+      "bundleIdentifier": "com.fantasytvmobile",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -21,7 +21,7 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.billzaboob.fantasytvmobile"
+      "package": "com.fantasytvmobile"
     },
     "web": {
       "bundler": "metro",
