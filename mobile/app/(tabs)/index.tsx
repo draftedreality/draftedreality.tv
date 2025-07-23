@@ -5,13 +5,13 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { useQuery } from 'convex/react';
-import { api } from 'backend/_generated/api';
+// import { useQuery } from 'convex/react';
+// import { api } from 'backend/_generated/api';
 import partialReactLogo from '@/assets/images/partial-react-logo.png';
 
 export default function HomeScreen() {
-  const example = useQuery(api.example.getShows);
-  console.log(example);
+  // const example = useQuery(api.example.getShows);
+  // console.log(example);
 
   return (
     <ParallaxScrollView
