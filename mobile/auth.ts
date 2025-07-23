@@ -8,23 +8,12 @@ import { type GenericCtx } from '../backend/_generated/server';
 const siteUrl = 'http://localhost:5173';
 
 export const createAuth = (ctx: GenericCtx) =>
-  // Configure your Better Auth instance here
   betterAuth({
     trustedOrigins: [siteUrl],
     database: convexAdapter(ctx, betterAuthComponent),
-
-    // Simple non-verified email/password to get started
     emailAndPassword: {
       enabled: true,
       requireEmailVerification: false,
     },
-    plugins: [
-      // The Convex plugin is required
-      convex(),
-
-      // The cross domain plugin is required for client side frameworks
-      crossDomain({
-        siteUrl,
-      }),
-    ],
+    plugins: [convex(), crossDomain({ siteUrl })],
   });

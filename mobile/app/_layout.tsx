@@ -14,7 +14,7 @@ import { Authenticated, Unauthenticated, AuthLoading } from 'convex/react';
 import SpaceMono from '@/assets/fonts/SpaceMono-Regular.ttf';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { authClient } from '@/auth-client';
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -50,7 +50,27 @@ export default function RootLayout() {
               backgroundColor: 'red',
             }}
           >
-            <Text style={{ fontSize: 24 }}>Time to login!</Text>
+            <Pressable
+              onPress={() => {
+                void authClient.signUp.email(
+                  {
+                    email: 'cocolymoo@gmail.com',
+                    name: 'Nick',
+                    password: 'Angela11!',
+                  },
+                  {
+                    onSuccess: () => {
+                      console.log('User created successfully');
+                    },
+                    onError: error => {
+                      console.error(error);
+                    },
+                  }
+                );
+              }}
+            >
+              <Text style={{ fontSize: 24 }}>Time to login!</Text>
+            </Pressable>
           </View>
         </Unauthenticated>
         <Authenticated>
