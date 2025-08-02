@@ -5,7 +5,8 @@
   "private": true,
   "workspaces": [
     "backend",
-    "mobile"
+    "mobile",
+    "web"
   ],
   "scripts": {
     "dev": "convex dev",
