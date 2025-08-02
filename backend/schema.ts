@@ -10,6 +10,7 @@ export default defineSchema({
   }),
   shows: defineTable({
     title: v.string(),
+    imageUrl: v.string(),
   }),
   seasons: defineTable({
     title: v.string(),

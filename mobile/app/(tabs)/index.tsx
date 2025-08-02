@@ -1,81 +1,85 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { usePaginatedQuery } from 'convex/react';
+import { api } from 'backend/_generated/api';
+import type { FunctionComponent } from 'react';
+import type { Doc } from 'backend/_generated/dataModel';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { useQuery } from 'convex/react';
-import { api } from 'backend/_generated/api';
-import partialReactLogo from '@/assets/images/partial-react-logo.png';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Image } from 'expo-image';
+
+const PAGE_SIZE = 6;
 
 export default function HomeScreen() {
-  const example = useQuery(api.example.getShows);
-  console.log(example);
+  const { results, status, loadMore } = usePaginatedQuery(
+    api.shows.list,
+    {},
+    { initialNumItems: PAGE_SIZE }
+  );
 
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={<Image source={partialReactLogo} style={styles.reactLogo} />}
-    >
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type='title'>Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type='subtitle'>Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit{' '}
-          <ThemedText type='defaultSemiBold'>app/(tabs)/index.tsx</ThemedText>{' '}
-          to see changes. Press{' '}
-          <ThemedText type='defaultSemiBold'>
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type='subtitle'>Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type='subtitle'>Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type='defaultSemiBold'>
-            npm run reset-project
-          </ThemedText>{' '}
-          to get a fresh <ThemedText type='defaultSemiBold'>app</ThemedText>{' '}
-          directory. This will move the current{' '}
-          <ThemedText type='defaultSemiBold'>app</ThemedText> to{' '}
-          <ThemedText type='defaultSemiBold'>app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <SafeAreaView>
+      <FlatList
+        keyExtractor={item => item._id}
+        data={results}
+        numColumns={2}
+        contentContainerStyle={styles.container}
+        ListHeaderComponent={<ThemedText type='title'>Shows</ThemedText>}
+        ListFooterComponent={
+          status === 'Exhausted' ? (
+            <ThemedText style={{ alignSelf: 'center', paddingBottom: 80 }}>
+              Not seeing your favorite show? Tell us!
+            </ThemedText>
+          ) : null
+        }
+        columnWrapperStyle={styles.column}
+        renderItem={({ item: show }) => <Show show={show} />}
+        onEndReached={() => {
+          if (status === 'CanLoadMore') {
+            loadMore(PAGE_SIZE);
+          }
+        }}
+      />
+    </SafeAreaView>
   );
 }
 
+const Show: FunctionComponent<{ show: Doc<'shows'> }> = ({ show }) => {
+  return (
+    <ThemedView style={styles.showContainer}>
+      <Image
+        source={show.imageUrl}
+        contentFit='contain'
+        style={{ flex: 1, width: '100%' }}
+      />
+      <ThemedText
+        type='subtitle'
+        style={styles.showTitle}
+        numberOfLines={1}
+        ellipsizeMode='tail'
+      >
+        {show.title}
+      </ThemedText>
+    </ThemedView>
+  );
+};
+
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  container: {
+    gap: 16,
+  },
+  column: {
+    justifyContent: 'space-around',
+  },
+  showContainer: {
+    justifyContent: 'space-between',
     alignItems: 'center',
-    gap: 8,
+    height: 280,
+    width: '45%',
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  showTitle: {
+    alignSelf: 'center',
+    paddingVertical: 8,
   },
 });
