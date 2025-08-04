@@ -36,7 +36,11 @@ jobs:
 
   lint-check:
     runs-on: ubuntu-latest
-    name: Lint Check
+    name: Lint Check (${{ matrix.directory }})
+
+    strategy:
+      matrix:
+        directory: [backend, mobile, web]
 
     steps:
       - name: Checkout code
@@ -58,8 +62,10 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Run ESLint
-        run: bun run lint
+      - name: Run ESLint in ${{ matrix.directory }}
+        run: |
+          cd ${{ matrix.directory }}
+          bun run lint
 
   type-check:
     runs-on: ubuntu-latest
