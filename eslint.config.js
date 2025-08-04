@@ -47,6 +47,7 @@ export default [
       'mobile/ios/**',
       'bun.lockb',
       '**/*.config.js',
+      'web/src/frontend.tsx',
     ],
   },
 ];
