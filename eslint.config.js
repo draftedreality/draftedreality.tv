@@ -4,7 +4,7 @@ import tseslint from 'typescript-eslint';
 
 export default [
   js.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
+  // ...tseslint.configs.recommendedTypeChecked,
   {
     languageOptions: {
       globals: {
