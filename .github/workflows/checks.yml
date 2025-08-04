@@ -98,4 +98,4 @@ jobs:
       - name: Run TypeScript check in ${{ matrix.directory }}
         run: |
           cd ${{ matrix.directory }}
-          bunx tsc --noEmit --skipLibCheck
+          bunx tsc --noEmit
