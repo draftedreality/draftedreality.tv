@@ -41,6 +41,7 @@ lerna-debug.log*
 # Native mobile builds
 mobile/ios
 mobile/android
+mobile/.expo
 
 # Editor directories and files
 .vscode/*
