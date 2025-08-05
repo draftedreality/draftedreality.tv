@@ -15,7 +15,9 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({ SpaceMono });
-  const convex = new ConvexReactClient(process.env.EXPO_PUBLIC_CONVEX_URL!);
+  const convexUrl = process.env.EXPO_PUBLIC_CONVEX_URL;
+  if (!convexUrl) throw new Error('Missing Convex URL');
+  const convex = new ConvexReactClient(convexUrl);
 
   if (!loaded) {
     // Async font loading only occurs in development.
