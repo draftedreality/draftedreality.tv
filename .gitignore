@@ -42,6 +42,7 @@ lerna-debug.log*
 mobile/ios
 mobile/android
 mobile/.expo
+expo-env.d.ts
 
 # Editor directories and files
 .vscode/*
