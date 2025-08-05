@@ -38,13 +38,10 @@ export default [
   },
   {
     ignores: [
-      'node_modules/**',
-      'dist/**',
-      'build/**',
-      '.expo/**',
       '**/node_modules/**',
-      'convex/_generated/**',
+      '**/convex/_generated/**',
       'mobile/.expo/**',
+      '**/dist/**',
       'mobile/android/**',
       'mobile/ios/**',
       'bun.lockb',
