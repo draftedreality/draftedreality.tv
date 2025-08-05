@@ -3,13 +3,14 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "noPropertyAccessFromIndexSignature": false
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
-    "assets.d.ts"
+    "types/*.d.ts"
   ]
 }
