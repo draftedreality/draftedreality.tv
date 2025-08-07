@@ -21,11 +21,11 @@ const HomeScreen = () => {
   return (
     <SafeAreaView>
       <FlatList
-        ListHeaderComponent={<ThemedText type='title'>Shows</ThemedText>}
         columnWrapperStyle={styles.column}
         contentContainerStyle={styles.container}
         data={results}
         keyExtractor={item => item._id}
+        ListHeaderComponent={<ThemedText type='title'>Shows</ThemedText>}
         numColumns={2}
         renderItem={({ item: show }) => <Show show={show} />}
         ListFooterComponent={
