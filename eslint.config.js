@@ -2,7 +2,7 @@ import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import react from 'eslint-plugin-react';
-// import reactHooks from 'eslint-plugin-react-hooks';
+import reactHooks from 'eslint-plugin-react-hooks';
 
 export default tseslint.config(
   js.configs.recommended,
@@ -15,6 +15,7 @@ export default tseslint.config(
   {
     plugins: {
       react,
+      'react-hooks': reactHooks,
     },
     languageOptions: {
       globals: {
@@ -107,6 +108,8 @@ export default tseslint.config(
       'react/no-object-type-as-default-prop': 'error',
       'react/prefer-stateless-function': 'error',
       'react/self-closing-comp': 'error',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'error',
     },
   },
   {
