@@ -1,19 +1,20 @@
 {
   "expo": {
-    "name": "fantasy-tv-mobile",
+    "name": "drafted-reality",
     "slug": "fantasy-tv-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "fantasytvmobile",
+    "scheme": "draftedreality",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.fantasytvmobile",
+      "bundleIdentifier": "com.draftedreality",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
-      }
+      },
+      "associatedDomains": ["applinks:draftedreality.tv"]
     },
     "android": {
       "adaptiveIcon": {
@@ -21,7 +22,20 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.fantasytvmobile"
+      "package": "com.draftedreality",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "draftedreality.tv"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
     },
     "web": {
       "bundler": "metro",

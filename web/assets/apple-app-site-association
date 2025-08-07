@@ -1,0 +1,27 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "25HAC74R58.com.draftedreality"
+        ],
+        "components": [
+          {
+            "/": "*",
+            "comment": "Matches all routes"
+          }
+        ]
+      }
+    ]
+  },
+  "activitycontinuation": {
+    "apps": [
+      "25HAC74R58.com.draftedreality"
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "25HAC74R58.com.draftedreality"
+    ]
+  }
+}
