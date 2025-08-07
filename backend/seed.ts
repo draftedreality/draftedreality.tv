@@ -1,5 +1,6 @@
-import { internalMutation } from './_generated/server';
 import { faker } from '@faker-js/faker';
+
+import { internalMutation } from './_generated/server';
 
 export const init = internalMutation({
   args: {},

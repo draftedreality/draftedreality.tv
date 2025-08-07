@@ -3,8 +3,7 @@
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import type { SymbolWeight, SymbolViewProps } from 'expo-symbols';
 import type { ComponentProps } from 'react';
-import type { OpaqueColorValue } from 'react-native';
-import { type StyleProp, type TextStyle } from 'react-native';
+import type { OpaqueColorValue, StyleProp, TextStyle } from 'react-native';
 
 type IconMapping = Record<
   SymbolViewProps['name'],
@@ -29,7 +28,7 @@ const MAPPING = {
  * This ensures a consistent look across platforms, and optimal resource usage.
  * Icon `name`s are based on SF Symbols and require manual mapping to Material Icons.
  */
-export function IconSymbol({
+export const IconSymbol = ({
   name,
   size = 24,
   color,
@@ -40,13 +39,13 @@ export function IconSymbol({
   color: string | OpaqueColorValue;
   style?: StyleProp<TextStyle>;
   weight?: SymbolWeight;
-}) {
+}) => {
   return (
     <MaterialIcons
       color={color}
-      size={size}
       name={MAPPING[name]}
+      size={size}
       style={style}
     />
   );
-}
+};

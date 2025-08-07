@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 // Type declarations for static assets
 
 declare module '*.png' {

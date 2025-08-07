@@ -1,17 +1,17 @@
-import { FlatList, StyleSheet } from 'react-native';
-
-import { usePaginatedQuery } from 'convex/react';
 import { api } from 'backend/_generated/api';
-import type { FunctionComponent } from 'react';
 import type { Doc } from 'backend/_generated/dataModel';
+import { usePaginatedQuery } from 'convex/react';
+import { Image } from 'expo-image';
+import type { FunctionComponent } from 'react';
+import { FlatList, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Image } from 'expo-image';
 
 const PAGE_SIZE = 6;
 
-export default function HomeScreen() {
+export const HomeScreen = () => {
   const { results, status, loadMore } = usePaginatedQuery(
     api.shows.list,
     {},
@@ -21,11 +21,13 @@ export default function HomeScreen() {
   return (
     <SafeAreaView>
       <FlatList
-        keyExtractor={item => item._id}
-        data={results}
-        numColumns={2}
+        columnWrapperStyle={styles.column}
         contentContainerStyle={styles.container}
+        data={results}
+        keyExtractor={item => item._id}
         ListHeaderComponent={<ThemedText type='title'>Shows</ThemedText>}
+        numColumns={2}
+        renderItem={({ item: show }) => <Show show={show} />}
         ListFooterComponent={
           status === 'Exhausted' ? (
             <ThemedText style={{ alignSelf: 'center', paddingBottom: 80 }}>
@@ -33,8 +35,6 @@ export default function HomeScreen() {
             </ThemedText>
           ) : null
         }
-        columnWrapperStyle={styles.column}
-        renderItem={({ item: show }) => <Show show={show} />}
         onEndReached={() => {
           if (status === 'CanLoadMore') {
             loadMore(PAGE_SIZE);
@@ -43,21 +43,21 @@ export default function HomeScreen() {
       />
     </SafeAreaView>
   );
-}
+};
 
 const Show: FunctionComponent<{ show: Doc<'shows'> }> = ({ show }) => {
   return (
     <ThemedView style={styles.showContainer}>
       <Image
-        source={show.imageUrl}
         contentFit='contain'
+        source={show.imageUrl}
         style={{ flex: 1, width: '100%' }}
       />
       <ThemedText
-        type='subtitle'
-        style={styles.showTitle}
-        numberOfLines={1}
         ellipsizeMode='tail'
+        numberOfLines={1}
+        style={styles.showTitle}
+        type='subtitle'
       >
         {show.title}
       </ThemedText>

@@ -8,15 +8,16 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
+import { StrictMode } from 'react';
 
 import SpaceMono from '@/assets/fonts/SpaceMono-Regular.ttf';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
-export default function RootLayout() {
+export const RootLayout = () => {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({ SpaceMono });
   const convexUrl = process.env.EXPO_PUBLIC_CONVEX_URL;
-  if (!convexUrl) throw new Error('Missing Convex URL');
+  if (typeof convexUrl !== 'string') throw new Error('Missing Convex URL');
   const convex = new ConvexReactClient(convexUrl);
 
   if (!loaded) {
@@ -25,14 +26,18 @@ export default function RootLayout() {
   }
 
   return (
-    <ConvexProvider client={convex}>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-          <Stack.Screen name='+not-found' />
-        </Stack>
-        <StatusBar style='auto' />
-      </ThemeProvider>
-    </ConvexProvider>
+    <StrictMode>
+      <ConvexProvider client={convex}>
+        <ThemeProvider
+          value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+        >
+          <Stack>
+            <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+            <Stack.Screen name='+not-found' />
+          </Stack>
+          <StatusBar style='auto' />
+        </ThemeProvider>
+      </ConvexProvider>
+    </StrictMode>
   );
-}
+};
