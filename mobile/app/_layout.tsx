@@ -12,7 +12,7 @@ import 'react-native-reanimated';
 import SpaceMono from '@/assets/fonts/SpaceMono-Regular.ttf';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
-export default function RootLayout() {
+const RootLayout = () => {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({ SpaceMono });
   const convexUrl = process.env.EXPO_PUBLIC_CONVEX_URL;
@@ -35,4 +35,6 @@ export default function RootLayout() {
       </ThemeProvider>
     </ConvexProvider>
   );
-}
+};
+
+export default RootLayout;
