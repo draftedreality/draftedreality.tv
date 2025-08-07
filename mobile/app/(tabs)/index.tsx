@@ -1,13 +1,13 @@
-import { FlatList, StyleSheet } from 'react-native';
-
-import { usePaginatedQuery } from 'convex/react';
 import { api } from 'backend/_generated/api';
-import type { FunctionComponent } from 'react';
 import type { Doc } from 'backend/_generated/dataModel';
+import { usePaginatedQuery } from 'convex/react';
+import { Image } from 'expo-image';
+import type { FunctionComponent } from 'react';
+import { FlatList, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Image } from 'expo-image';
 
 const PAGE_SIZE = 6;
 
