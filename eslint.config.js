@@ -104,6 +104,7 @@ export default tseslint.config(
           shorthandFirst: true,
           multiline: 'last',
           reservedFirst: true,
+          ignoreCase: true,
         },
       ],
       'react/no-array-index-key': 'error',
