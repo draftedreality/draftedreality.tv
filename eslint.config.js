@@ -112,6 +112,7 @@ export default tseslint.config(
       'react/self-closing-comp': 'error',
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'error',
+      'react-hooks/react-compiler': 'error',
       'import/order': [
         'error',
         {
