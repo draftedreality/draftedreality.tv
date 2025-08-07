@@ -3,12 +3,12 @@ import './index.css';
 import logo from '../assets/logo.svg';
 import reactLogo from '../assets/react.svg';
 
-export function App() {
+export const App = () => {
   return (
     <div className='app'>
       <div className='logo-container'>
-        <img src={logo} alt='Bun Logo' className='logo bun-logo' />
-        <img src={reactLogo} alt='React Logo' className='logo react-logo' />
+        <img alt='Bun Logo' className='logo bun-logo' src={logo} />
+        <img alt='React Logo' className='logo react-logo' src={reactLogo} />
       </div>
 
       <h1>Bun + React</h1>
@@ -17,6 +17,6 @@ export function App() {
       </p>
     </div>
   );
-}
+};
 
 export default App;

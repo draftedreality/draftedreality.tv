@@ -11,7 +11,7 @@ import { Image } from 'expo-image';
 
 const PAGE_SIZE = 6;
 
-export default function HomeScreen() {
+const HomeScreen = () => {
   const { results, status, loadMore } = usePaginatedQuery(
     api.shows.list,
     {},
@@ -21,11 +21,13 @@ export default function HomeScreen() {
   return (
     <SafeAreaView>
       <FlatList
-        keyExtractor={item => item._id}
-        data={results}
-        numColumns={2}
-        contentContainerStyle={styles.container}
         ListHeaderComponent={<ThemedText type='title'>Shows</ThemedText>}
+        columnWrapperStyle={styles.column}
+        contentContainerStyle={styles.container}
+        data={results}
+        keyExtractor={item => item._id}
+        numColumns={2}
+        renderItem={({ item: show }) => <Show show={show} />}
         ListFooterComponent={
           status === 'Exhausted' ? (
             <ThemedText style={{ alignSelf: 'center', paddingBottom: 80 }}>
@@ -33,8 +35,6 @@ export default function HomeScreen() {
             </ThemedText>
           ) : null
         }
-        columnWrapperStyle={styles.column}
-        renderItem={({ item: show }) => <Show show={show} />}
         onEndReached={() => {
           if (status === 'CanLoadMore') {
             loadMore(PAGE_SIZE);
@@ -43,21 +43,23 @@ export default function HomeScreen() {
       />
     </SafeAreaView>
   );
-}
+};
+
+export default HomeScreen;
 
 const Show: FunctionComponent<{ show: Doc<'shows'> }> = ({ show }) => {
   return (
     <ThemedView style={styles.showContainer}>
       <Image
-        source={show.imageUrl}
         contentFit='contain'
+        source={show.imageUrl}
         style={{ flex: 1, width: '100%' }}
       />
       <ThemedText
-        type='subtitle'
-        style={styles.showTitle}
-        numberOfLines={1}
         ellipsizeMode='tail'
+        numberOfLines={1}
+        style={styles.showTitle}
+        type='subtitle'
       >
         {show.title}
       </ThemedText>

@@ -66,6 +66,47 @@ export default tseslint.config(
       '@typescript-eslint/require-array-sort-compare': 'error',
       '@typescript-eslint/restrict-plus-operands': 'error',
       '@typescript-eslint/no-redundant-type-constituents': 'error',
+      'react/boolean-prop-naming': [
+        'error',
+        { rule: '^(is|has|can|should|will|did)[A-Z]([A-Za-z0-9]?)+' },
+      ],
+      'react/button-has-type': 'error',
+      'react/default-props-match-prop-types': 'error',
+      'react/destructuring-assignment': ['error', 'always'],
+      'react/function-component-definition': [
+        'error',
+        {
+          namedComponents: 'arrow-function',
+          unnamedComponents: 'arrow-function',
+        },
+      ],
+      'react/hook-use-state': 'error',
+      'react/jsx-boolean-value': ['error', 'never'],
+      'react/jsx-curly-brace-presence': [
+        'error',
+        {
+          props: 'never',
+          children: 'never',
+        },
+      ],
+      'react/jsx-fragments': ['error', 'syntax'],
+      'react/jsx-handler-names': 'error',
+      'react/jsx-no-leaked-render': 'error',
+      'react/jsx-no-useless-fragment': 'error',
+      'react/jsx-pascal-case': 'error',
+      'react/jsx-sort-props': [
+        'error',
+        {
+          callbacksLast: true,
+          shorthandFirst: true,
+          multiline: 'last',
+          reservedFirst: true,
+        },
+      ],
+      'react/no-array-index-key': 'error',
+      'react/no-object-type-as-default-prop': 'error',
+      'react/prefer-stateless-function': 'error',
+      'react/self-closing-comp': 'error',
     },
   },
   {
