@@ -11,7 +11,7 @@ import { ThemedView } from '@/components/ThemedView';
 
 const PAGE_SIZE = 6;
 
-const HomeScreen = () => {
+export const HomeScreen = () => {
   const { results, status, loadMore } = usePaginatedQuery(
     api.shows.list,
     {},
@@ -44,8 +44,6 @@ const HomeScreen = () => {
     </SafeAreaView>
   );
 };
-
-export default HomeScreen;
 
 const Show: FunctionComponent<{ show: Doc<'shows'> }> = ({ show }) => {
   return (
