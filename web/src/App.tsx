@@ -1,7 +1,7 @@
 import './index.css';
 
-import logo from './logo.svg';
-import reactLogo from './react.svg';
+import logo from '../assets/logo.svg';
+import reactLogo from '../assets/react.svg';
 
 export function App() {
   return (
