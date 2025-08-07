@@ -8,6 +8,7 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
+import { StrictMode } from 'react';
 
 import SpaceMono from '@/assets/fonts/SpaceMono-Regular.ttf';
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -25,15 +26,17 @@ const RootLayout = () => {
   }
 
   return (
-    <ConvexProvider client={convex}>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-          <Stack.Screen name='+not-found' />
-        </Stack>
-        <StatusBar style='auto' />
-      </ThemeProvider>
-    </ConvexProvider>
+    <StrictMode>
+      <ConvexProvider client={convex}>
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          <Stack>
+            <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+            <Stack.Screen name='+not-found' />
+          </Stack>
+          <StatusBar style='auto' />
+        </ThemeProvider>
+      </ConvexProvider>
+    </StrictMode>
   );
 };
 
