@@ -1,27 +1,45 @@
 import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import react from 'eslint-plugin-react';
+// import reactHooks from 'eslint-plugin-react-hooks';
 
-export default [
+export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
+  react.configs.flat.recommended,
+  react.configs.flat['jsx-runtime'],
   {
+    files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
+  },
+  {
+    plugins: {
+      react,
+    },
     languageOptions: {
       globals: {
         ...globals.browser,
         ...globals.node,
         ...globals.es2022,
       },
-      ecmaVersion: 2022,
       sourceType: 'module',
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    settings: {
+      react: {
+        version: 'detect',
       },
     },
     rules: {
-      'prefer-const': 'error',
+      eqeqeq: 'error',
       'no-var': 'error',
+      'prefer-const': 'error',
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
@@ -34,7 +52,20 @@ export default [
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
       '@typescript-eslint/prefer-nullish-coalescing': 'error',
-      eqeqeq: 'error',
+      '@typescript-eslint/no-floating-promises': 'error',
+      '@typescript-eslint/no-misused-promises': 'error',
+      '@typescript-eslint/require-await': 'error',
+      '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
+      '@typescript-eslint/strict-boolean-expressions': 'error',
+      '@typescript-eslint/switch-exhaustiveness-check': 'error',
+      '@typescript-eslint/prefer-for-of': 'error',
+      '@typescript-eslint/prefer-includes': 'error',
+      '@typescript-eslint/prefer-optional-chain': 'error',
+      '@typescript-eslint/prefer-readonly': 'error',
+      '@typescript-eslint/prefer-string-starts-ends-with': 'error',
+      '@typescript-eslint/require-array-sort-compare': 'error',
+      '@typescript-eslint/restrict-plus-operands': 'error',
+      '@typescript-eslint/no-redundant-type-constituents': 'error',
     },
   },
   {
@@ -45,9 +76,8 @@ export default [
       '**/dist/**',
       'mobile/android/**',
       'mobile/ios/**',
-      'bun.lockb',
       '**/*.config.js',
       'web/src/frontend.tsx',
     ],
-  },
-];
+  }
+);

@@ -16,7 +16,7 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({ SpaceMono });
   const convexUrl = process.env.EXPO_PUBLIC_CONVEX_URL;
-  if (!convexUrl) throw new Error('Missing Convex URL');
+  if (typeof convexUrl !== 'string') throw new Error('Missing Convex URL');
   const convex = new ConvexReactClient(convexUrl);
 
   if (!loaded) {
