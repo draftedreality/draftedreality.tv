@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
-const NotFoundScreen = () => {
+export const NotFoundScreen = () => {
   return (
     <>
       <Stack.Screen options={{ title: 'Oops!' }} />
@@ -17,8 +17,6 @@ const NotFoundScreen = () => {
     </>
   );
 };
-
-export default NotFoundScreen;
 
 const styles = StyleSheet.create({
   container: {

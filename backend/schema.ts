@@ -1,6 +1,7 @@
 import { defineSchema, defineTable } from 'convex/server';
 import { v } from 'convex/values';
 
+// eslint-disable-next-line import/no-default-export
 export default defineSchema({
   users: defineTable({
     firstName: v.string(),
