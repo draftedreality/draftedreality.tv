@@ -26,11 +26,6 @@ export const createAuth = (ctx: GenericCtx) =>
     plugins: [
       // The Convex plugin is required
       convex(),
-
-      // The cross domain plugin is required for client side frameworks
-      crossDomain({
-        siteUrl,
-      }),
     ],
   });
 
