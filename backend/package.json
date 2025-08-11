@@ -4,5 +4,8 @@
   "scripts": {
     "lint": "eslint ."
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@faker-js/faker": "^9.9.0"
+  }
 }

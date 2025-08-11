@@ -3,12 +3,14 @@ import {
   DefaultTheme,
   ThemeProvider,
 } from '@react-navigation/native';
-import { ConvexProvider, ConvexReactClient } from 'convex/react';
+import { ConvexReactClient } from 'convex/react';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 import { StrictMode } from 'react';
+import { ConvexBetterAuthProvider } from '@convex-dev/better-auth/react';
+import { authClient } from '@/auth-client';
 
 import SpaceMono from '@/assets/fonts/SpaceMono-Regular.ttf';
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -27,7 +29,7 @@ export const RootLayout = () => {
 
   return (
     <StrictMode>
-      <ConvexProvider client={convex}>
+      <ConvexBetterAuthProvider client={convex} authClient={authClient}>
         <ThemeProvider
           value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
         >
@@ -37,7 +39,7 @@ export const RootLayout = () => {
           </Stack>
           <StatusBar style='auto' />
         </ThemeProvider>
-      </ConvexProvider>
+      </ConvexBetterAuthProvider>
     </StrictMode>
   );
 };
