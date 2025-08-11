@@ -12,17 +12,19 @@ import { expo } from '@better-auth/expo';
 
 // You'll want to replace this with an environment variable
 const siteUrl = 'http://localhost:5173';
+const clientId = process.env['GOOGLE_CLIENT_ID'] ?? 'fake';
+const clientSecret = process.env['GOOGLE_CLIENT_SECRET'] ?? 'fake';
 
 export const createAuth = (ctx: GenericCtx) =>
   // Configure your Better Auth instance here
   betterAuth({
     trustedOrigins: [siteUrl],
     database: convexAdapter(ctx, betterAuthComponent),
-
-    // Simple non-verified email/password to get started
-    emailAndPassword: {
-      enabled: true,
-      requireEmailVerification: false,
+    socialProviders: {
+      google: {
+        clientId,
+        clientSecret,
+      },
     },
     plugins: [
       // The Convex plugin is required
