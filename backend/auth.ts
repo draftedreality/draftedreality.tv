@@ -1,14 +1,15 @@
+import { expo } from '@better-auth/expo';
 import {
   BetterAuth,
   type AuthFunctions,
   convexAdapter,
 } from '@convex-dev/better-auth';
+import { convex } from '@convex-dev/better-auth/plugins';
+import { type GenericCtx } from 'backend/_generated/server';
+import { betterAuth } from 'better-auth';
+
 import { components, internal } from './_generated/api';
 import type { Id, DataModel } from './_generated/dataModel';
-import { convex } from '@convex-dev/better-auth/plugins';
-import { betterAuth } from 'better-auth';
-import { type GenericCtx } from 'backend/_generated/server';
-import { expo } from '@better-auth/expo';
 
 // You'll want to replace this with an environment variable
 const siteUrl = 'http://localhost:5173';

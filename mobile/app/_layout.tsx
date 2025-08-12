@@ -1,3 +1,4 @@
+import { ConvexBetterAuthProvider } from '@convex-dev/better-auth/react';
 import {
   DarkTheme,
   DefaultTheme,
@@ -9,10 +10,9 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 import { StrictMode } from 'react';
-import { ConvexBetterAuthProvider } from '@convex-dev/better-auth/react';
-import { authClient } from '@/auth-client';
 
 import SpaceMono from '@/assets/fonts/SpaceMono-Regular.ttf';
+import { authClient } from '@/auth-client';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 export const RootLayout = () => {
@@ -29,7 +29,7 @@ export const RootLayout = () => {
 
   return (
     <StrictMode>
-      <ConvexBetterAuthProvider client={convex} authClient={authClient}>
+      <ConvexBetterAuthProvider authClient={authClient} client={convex}>
         <ThemeProvider
           value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
         >
