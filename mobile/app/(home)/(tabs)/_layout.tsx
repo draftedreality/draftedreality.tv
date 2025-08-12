@@ -7,7 +7,7 @@ import { TabBarBackground } from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
-export const TabLayout = () => {
+const TabLayout = () => {
   const colorScheme = useColorScheme();
 
   return (
@@ -32,20 +32,19 @@ export const TabLayout = () => {
         name='index'
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => (
-            <IconSymbol color={color} name='house.fill' size={28} />
-          ),
+          tabBarIcon: ({ color }) => <IconSymbol color={color} name='house.fill' size={28} />,
         }}
       />
       <Tabs.Screen
         name='explore'
         options={{
           title: 'Explore',
-          tabBarIcon: ({ color }) => (
-            <IconSymbol color={color} name='paperplane.fill' size={28} />
-          ),
+          tabBarIcon: ({ color }) => <IconSymbol color={color} name='paperplane.fill' size={28} />,
         }}
       />
     </Tabs>
   );
 };
+
+// eslint-disable-next-line import/no-default-export
+export default TabLayout;

@@ -1,6 +1,6 @@
 import { api } from 'backend/_generated/api';
 import type { Doc } from 'backend/_generated/dataModel';
-import { usePaginatedQuery } from 'convex/react';
+import { usePaginatedQuery, useQuery } from 'convex/react';
 import { Image } from 'expo-image';
 import type { FunctionComponent } from 'react';
 import { FlatList, StyleSheet, Pressable } from 'react-native';
@@ -12,19 +12,15 @@ import { ThemedView } from '@/components/ThemedView';
 
 const PAGE_SIZE = 6;
 
-export const HomeScreen = () => {
-  const { results, status, loadMore } = usePaginatedQuery(
-    api.shows.list,
-    {},
-    { initialNumItems: PAGE_SIZE }
-  );
+const HomeScreen = () => {
+  const { results, status, loadMore } = usePaginatedQuery(api.shows.list, {}, { initialNumItems: PAGE_SIZE });
+  const userProfile = useQuery(api.users.currentUser);
 
   return (
     <SafeAreaView>
-      <Pressable
-        onPress={() => void authClient.signIn.social({ provider: 'google' })}
-      >
-        <ThemedText type='title'>Sign In</ThemedText>
+      <ThemedText type='title'>Hello {userProfile?.email ?? 'Guest'}</ThemedText>
+      <Pressable onPress={() => void authClient.signOut()}>
+        <ThemedText type='title'>Sign Out</ThemedText>
       </Pressable>
       <FlatList
         columnWrapperStyle={styles.column}
@@ -51,20 +47,14 @@ export const HomeScreen = () => {
   );
 };
 
+// eslint-disable-next-line import/no-default-export
+export default HomeScreen;
+
 const Show: FunctionComponent<{ show: Doc<'shows'> }> = ({ show }) => {
   return (
     <ThemedView style={styles.showContainer}>
-      <Image
-        contentFit='contain'
-        source={show.imageUrl}
-        style={{ flex: 1, width: '100%' }}
-      />
-      <ThemedText
-        ellipsizeMode='tail'
-        numberOfLines={1}
-        style={styles.showTitle}
-        type='subtitle'
-      >
+      <Image contentFit='contain' source={show.imageUrl} style={{ flex: 1, width: '100%' }} />
+      <ThemedText ellipsizeMode='tail' numberOfLines={1} style={styles.showTitle} type='subtitle'>
         {show.title}
       </ThemedText>
     </ThemedView>

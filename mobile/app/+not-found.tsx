@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
-export const NotFoundScreen = () => {
+const NotFoundScreen = () => {
   return (
     <>
       <Stack.Screen options={{ title: 'Oops!' }} />
@@ -17,6 +17,9 @@ export const NotFoundScreen = () => {
     </>
   );
 };
+
+// eslint-disable-next-line import/no-default-export
+export default NotFoundScreen;
 
 const styles = StyleSheet.create({
   container: {

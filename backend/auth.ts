@@ -1,9 +1,5 @@
 import { expo } from '@better-auth/expo';
-import {
-  BetterAuth,
-  type AuthFunctions,
-  convexAdapter,
-} from '@convex-dev/better-auth';
+import { BetterAuth, type AuthFunctions, convexAdapter } from '@convex-dev/better-auth';
 import { convex } from '@convex-dev/better-auth/plugins';
 import { type GenericCtx } from 'backend/_generated/server';
 import { betterAuth } from 'better-auth';
@@ -14,8 +10,7 @@ import type { Id, DataModel } from './_generated/dataModel';
 // You'll want to replace this with an environment variable
 const siteUrl = 'http://localhost:5173';
 const clientId = process.env['GOOGLE_CLIENT_ID'] ?? 'fake-client-id';
-const clientSecret =
-  process.env['GOOGLE_CLIENT_SECRET'] ?? 'fake-client-secret';
+const clientSecret = process.env['GOOGLE_CLIENT_SECRET'] ?? 'fake-client-secret';
 
 export const createAuth = (ctx: GenericCtx) =>
   // Configure your Better Auth instance here
@@ -24,6 +19,7 @@ export const createAuth = (ctx: GenericCtx) =>
     database: convexAdapter(ctx, betterAuthComponent),
     socialProviders: {
       google: {
+        prompt: 'select_account',
         clientId,
         clientSecret,
       },
@@ -43,8 +39,8 @@ export const betterAuthComponent = new BetterAuth(components.betterAuth, {
   authFunctions,
 });
 
-export const { createUser, updateUser, deleteUser, createSession } =
-  betterAuthComponent.createAuthFunctions<DataModel>({
+export const { createUser, updateUser, deleteUser, createSession } = betterAuthComponent.createAuthFunctions<DataModel>(
+  {
     onCreateUser: async (ctx, user) => {
       return ctx.db.insert('users', {
         email: user.email,
@@ -57,4 +53,5 @@ export const { createUser, updateUser, deleteUser, createSession } =
     onDeleteUser: async (ctx, userId) => {
       await ctx.db.delete(userId as Id<'users'>);
     },
-  });
+  }
+);

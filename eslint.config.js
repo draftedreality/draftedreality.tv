@@ -52,10 +52,7 @@ export default tseslint.config(
       '@typescript-eslint/no-unnecessary-condition': 'error',
       '@typescript-eslint/no-unnecessary-type-assertion': 'error',
       '@typescript-eslint/no-unsafe-argument': 'error',
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
-      ],
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
       '@typescript-eslint/prefer-nullish-coalescing': 'error',
       '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/no-misused-promises': 'error',
@@ -71,10 +68,7 @@ export default tseslint.config(
       '@typescript-eslint/require-array-sort-compare': 'error',
       '@typescript-eslint/restrict-plus-operands': 'error',
       '@typescript-eslint/no-redundant-type-constituents': 'error',
-      'react/boolean-prop-naming': [
-        'error',
-        { rule: '^(is|has|can|should|will|did)[A-Z]([A-Za-z0-9]?)+' },
-      ],
+      'react/boolean-prop-naming': ['error', { rule: '^(is|has|can|should|will|did)[A-Z]([A-Za-z0-9]?)+' }],
       'react/button-has-type': 'error',
       'react/default-props-match-prop-types': 'error',
       'react/destructuring-assignment': ['error', 'always'],
@@ -119,14 +113,7 @@ export default tseslint.config(
       'import/order': [
         'error',
         {
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            'parent',
-            'sibling',
-            'index',
-          ],
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
           'newlines-between': 'always',
           alphabetize: {
             order: 'asc',
