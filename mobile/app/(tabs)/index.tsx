@@ -1,3 +1,6 @@
+import { FlatList, Pressable, StyleSheet } from 'react-native';
+
+import { usePaginatedQuery } from 'convex/react';
 import { api } from 'backend/_generated/api';
 import type { Doc } from 'backend/_generated/dataModel';
 import { usePaginatedQuery } from 'convex/react';
@@ -8,6 +11,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Image } from 'expo-image';
+import { authClient } from '@/auth-client';
 
 const PAGE_SIZE = 6;
 
@@ -20,6 +26,11 @@ export const HomeScreen = () => {
 
   return (
     <SafeAreaView>
+      <Pressable
+        onPress={() => void authClient.signIn.social({ provider: 'google' })}
+      >
+        <ThemedText type='title'>Sign In</ThemedText>
+      </Pressable>
       <FlatList
         columnWrapperStyle={styles.column}
         contentContainerStyle={styles.container}
