@@ -32,9 +32,7 @@ const server = serve({
     '/.well-known/apple-app-site-association': new Response(
       await Bun.file('./assets/apple-app-site-association').bytes()
     ),
-    '/.well-known/assetlinks.json': new Response(
-      await Bun.file('./assets/assetlinks.json').bytes()
-    ),
+    '/.well-known/assetlinks.json': new Response(await Bun.file('./assets/assetlinks.json').bytes()),
   },
 
   development: process.env.NODE_ENV !== 'production' && {
