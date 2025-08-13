@@ -1,5 +1,5 @@
-import { api } from 'backend/_generated/api';
-import type { Doc } from 'backend/_generated/dataModel';
+import { api } from 'backend';
+import type { Doc } from 'backend';
 import { usePaginatedQuery } from 'convex/react';
 import { Image } from 'expo-image';
 import type { FunctionComponent } from 'react';

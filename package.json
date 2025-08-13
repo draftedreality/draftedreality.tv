@@ -1,23 +1,6 @@
 {
   "name": "fantasy.tv",
   "module": "index.ts",
-  "type": "module",
-  "private": true,
-  "workspaces": [
-    "backend",
-    "mobile",
-    "web"
-  ],
-  "scripts": {
-    "dev": "convex dev",
-    "deploy": "convex deploy",
-    "dashboard": "convex dashboard",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "check": "bun run lint && bun run format:check"
-  },
   "devDependencies": {
     "@eslint/js": "^9.31.0",
     "@types/bun": "latest",
@@ -36,8 +19,21 @@
   "peerDependencies": {
     "typescript": "^5"
   },
-  "dependencies": {
-    "@faker-js/faker": "^9.9.0",
-    "convex": "^1.25.2"
-  }
+  "private": true,
+  "scripts": {
+    "dev": "convex dev",
+    "deploy": "convex deploy",
+    "dashboard": "convex dashboard",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "bun run lint && bun run format:check"
+  },
+  "type": "module",
+  "workspaces": [
+    "backend",
+    "mobile",
+    "web"
+  ]
 }
