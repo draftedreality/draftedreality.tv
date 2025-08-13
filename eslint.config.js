@@ -137,7 +137,6 @@ export default tseslint.config(
       ],
       'import/newline-after-import': 'error',
       'import/no-duplicates': 'error',
-      'import/no-default-export': 'error',
     },
   },
   {
