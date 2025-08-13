@@ -94,7 +94,6 @@ const TabTwoScreen = () => {
   );
 };
 
-// eslint-disable-next-line import/no-default-export
 export default TabTwoScreen;
 
 const styles = StyleSheet.create({

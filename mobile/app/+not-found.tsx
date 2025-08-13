@@ -18,7 +18,6 @@ const NotFoundScreen = () => {
   );
 };
 
-// eslint-disable-next-line import/no-default-export
 export default NotFoundScreen;
 
 const styles = StyleSheet.create({

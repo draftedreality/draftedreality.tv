@@ -47,7 +47,6 @@ const HomeScreen = () => {
   );
 };
 
-// eslint-disable-next-line import/no-default-export
 export default HomeScreen;
 
 const Show: FunctionComponent<{ show: Doc<'shows'> }> = ({ show }) => {
