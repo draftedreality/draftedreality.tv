@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "drafted-reality",
-    "slug": "fantasy-tv-mobile",
+    "slug": "drafted-reality",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -61,8 +61,9 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "b14c2510-2f15-4cd2-9e62-cc0738bd234a"
+        "projectId": "8b55cc80-3263-4869-8323-ed26929dcc11"
       }
-    }
+    },
+    "owner": "drafted-reality"
   }
 }
