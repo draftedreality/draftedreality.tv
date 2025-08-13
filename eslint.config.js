@@ -43,8 +43,8 @@ export default tseslint.config(
     },
     rules: {
       eqeqeq: 'error',
-      'no-var': 'error',
       'func-style': ['error', 'expression', { allowArrowFunctions: true }],
+      'no-var': 'error',
       'prefer-const': 'error',
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
       '@typescript-eslint/consistent-type-imports': 'error',
