@@ -2,7 +2,13 @@
   "name": "backend",
   "version": "0.0.0",
   "scripts": {
-    "lint": "eslint ."
+    "dev": "convex dev",
+    "deploy": "convex deploy",
+    "dashboard": "convex dashboard"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "convex": "^1.25.4"
+  }
 }

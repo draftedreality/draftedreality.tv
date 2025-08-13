@@ -10,7 +10,7 @@ build/
 out/
 
 # Generated files
-*/_generated/
+**/_generated/
 *.lockb
 bun.lockb
 
