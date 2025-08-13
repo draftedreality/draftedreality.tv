@@ -7,7 +7,7 @@ import { TabBarBackground } from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
-export const TabLayout = () => {
+const TabLayout = () => {
   const colorScheme = useColorScheme();
 
   return (
@@ -49,3 +49,5 @@ export const TabLayout = () => {
     </Tabs>
   );
 };
+
+export default TabLayout;

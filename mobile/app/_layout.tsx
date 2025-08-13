@@ -13,7 +13,7 @@ import { StrictMode } from 'react';
 import SpaceMono from '@/assets/fonts/SpaceMono-Regular.ttf';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
-export const RootLayout = () => {
+const RootLayout = () => {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({ SpaceMono });
   const convexUrl = process.env.EXPO_PUBLIC_CONVEX_URL;
@@ -41,3 +41,5 @@ export const RootLayout = () => {
     </StrictMode>
   );
 };
+
+export default RootLayout;
