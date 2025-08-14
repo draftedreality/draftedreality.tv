@@ -72,10 +72,6 @@ export default tseslint.config(
       '@typescript-eslint/require-array-sort-compare': 'error',
       '@typescript-eslint/restrict-plus-operands': 'error',
       '@typescript-eslint/no-redundant-type-constituents': 'error',
-      'react/boolean-prop-naming': [
-        'error',
-        { rule: '^(is|has|can|should|will|did)[A-Z]([A-Za-z0-9]?)+' },
-      ],
       'react/button-has-type': 'error',
       'react/default-props-match-prop-types': 'error',
       'react/destructuring-assignment': ['error', 'always'],
@@ -137,6 +133,19 @@ export default tseslint.config(
       ],
       'import/newline-after-import': 'error',
       'import/no-duplicates': 'error',
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: 'react-native',
+              importNames: ['View', 'FlatList', 'Text'],
+              message:
+                'Do not import directly. Use primitives (Box/Stack/Row/Text/List). If you need to change internals, do it in mobile/ui/primitives.tsx.',
+            },
+          ],
+        },
+      ],
     },
   },
   {
