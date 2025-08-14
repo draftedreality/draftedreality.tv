@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   DarkTheme,
   DefaultTheme,
@@ -40,6 +41,12 @@ const RootLayout = () => {
       </ConvexProvider>
     </StrictMode>
   );
+=======
+import { Stack } from "expo-router";
+
+const RootLayout = () => {
+  return <Stack />;
+>>>>>>> d12f349 (Reset)
 };
 
 export default RootLayout;
