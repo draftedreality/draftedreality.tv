@@ -12,7 +12,6 @@ export const List = <ItemT,>({
   padding,
   paddingHorizontal,
   paddingVertical,
-  fill,
   onEndReached,
   onEndReachedThreshold,
 }: ListProps<ItemT>) => {
@@ -29,7 +28,6 @@ export const List = <ItemT,>({
       renderItem={({ item, index }) => renderItem(item, index)}
       showsHorizontalScrollIndicator={false}
       showsVerticalScrollIndicator={false}
-      style={{ flex: fill === true ? 1 : undefined }}
       contentContainerStyle={{
         padding: containerPadding,
         paddingHorizontal: containerPaddingHorizontal,

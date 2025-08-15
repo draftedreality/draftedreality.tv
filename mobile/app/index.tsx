@@ -35,6 +35,7 @@ const Index = () => {
                 borderWidth={1}
                 padding='lg'
                 radius='md'
+                shadow='md'
               >
                 <Stack gap='md'>
                   <Image
@@ -57,12 +58,14 @@ const Index = () => {
         <Row justify='space-evenly'>
           <Button
             label='Stuff'
+            shadow='md'
             size='lg'
             variant='primary'
             onPress={() => console.log('Stuff')}
           />
           <Button
             label='Things'
+            shadow='md'
             size='lg'
             variant='secondary'
             onPress={() => console.log('Things')}

@@ -6,6 +6,7 @@ import type {
   RadiusToken,
   FontSizeToken,
   FontWeightToken,
+  ShadowToken,
 } from '../tokens';
 
 export type BaseLayoutProps = {
@@ -18,6 +19,7 @@ export type BaseLayoutProps = {
   radius?: RadiusToken;
   borderColor?: ColorToken;
   borderWidth?: number;
+  shadow?: ShadowToken;
 };
 
 export type StackProps = BaseLayoutProps & {
@@ -49,7 +51,6 @@ export type ListProps<ItemT> = {
   padding?: SpacingToken;
   paddingHorizontal?: SpacingToken;
   paddingVertical?: SpacingToken;
-  fill?: boolean;
   onEndReached?: () => void;
   onEndReachedThreshold?: number;
 };
@@ -74,4 +75,5 @@ export type ButtonProps = {
   borderColor?: ColorToken;
   borderWidth?: number;
   disabled?: boolean;
+  shadow?: ShadowToken;
 };

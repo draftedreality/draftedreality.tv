@@ -6,7 +6,7 @@ import type { ColorToken } from '../tokens';
 
 import { Text } from './Text';
 import type { ButtonProps } from './types';
-import { useColors, getSpacing, getRadius, getColor } from './utils';
+import { useColors, getSpacing, getRadius, getColor, getShadow } from './utils';
 
 export const Button: React.FC<ButtonProps> = ({
   label,
@@ -23,6 +23,7 @@ export const Button: React.FC<ButtonProps> = ({
   borderColor,
   borderWidth,
   disabled = false,
+  shadow,
 }) => {
   const colors = useColors();
 
@@ -35,6 +36,7 @@ export const Button: React.FC<ButtonProps> = ({
           textColor: getColor(colors, textColor) ?? colors.primaryText,
           borderWidth: borderWidth ?? 0,
           borderColor: getColor(colors, borderColor),
+          defaultShadow: 'md' as const,
         };
       case 'secondary':
         return {
@@ -42,6 +44,7 @@ export const Button: React.FC<ButtonProps> = ({
           textColor: getColor(colors, textColor) ?? colors.text,
           borderWidth: borderWidth ?? 1,
           borderColor: getColor(colors, borderColor) ?? colors.border,
+          defaultShadow: 'sm' as const,
         };
       case 'ghost':
         return {
@@ -49,6 +52,7 @@ export const Button: React.FC<ButtonProps> = ({
           textColor: getColor(colors, textColor) ?? colors.primary,
           borderWidth: borderWidth ?? 0,
           borderColor: getColor(colors, borderColor),
+          defaultShadow: 'none' as const,
         };
       default:
         return {
@@ -56,6 +60,7 @@ export const Button: React.FC<ButtonProps> = ({
           textColor: getColor(colors, textColor) ?? colors.primaryText,
           borderWidth: borderWidth ?? 0,
           borderColor: getColor(colors, borderColor),
+          defaultShadow: 'md' as const,
         };
     }
   };
@@ -63,18 +68,19 @@ export const Button: React.FC<ButtonProps> = ({
   const getSizePadding = () => {
     switch (size) {
       case 'sm':
-        return { horizontal: 'sm' as const, vertical: 'xs' as const };
+        return { horizontal: 'sm', vertical: 'xs' } as const;
       case 'md':
-        return { horizontal: 'md' as const, vertical: 'sm' as const };
+        return { horizontal: 'md', vertical: 'sm' } as const;
       case 'lg':
-        return { horizontal: 'lg' as const, vertical: 'md' as const };
+        return { horizontal: 'lg', vertical: 'md' } as const;
       default:
-        return { horizontal: 'md' as const, vertical: 'sm' as const };
+        return { horizontal: 'md', vertical: 'sm' } as const;
     }
   };
 
   const variantStyles = getVariantStyles();
   const sizePadding = getSizePadding();
+  const shadowStyle = getShadow(shadow ?? variantStyles.defaultShadow);
 
   const computedButtonStyle: ViewStyle = {
     flex: fill === true ? 1 : undefined,
@@ -90,6 +96,7 @@ export const Button: React.FC<ButtonProps> = ({
     alignItems: 'center',
     justifyContent: 'center',
     opacity: disabled ? 0.5 : 1,
+    ...shadowStyle,
   };
 
   const getTextSize = (): 'sm' | 'md' | 'lg' => {

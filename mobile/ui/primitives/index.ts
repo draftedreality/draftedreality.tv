@@ -15,3 +15,5 @@ export type {
   ScreenProps,
   ButtonProps,
 } from './types';
+
+export type { ShadowToken } from '../tokens';

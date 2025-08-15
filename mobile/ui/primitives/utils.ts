@@ -1,8 +1,13 @@
 import { useContext } from 'react';
 
 import { ThemeContext } from '../theme-context';
-import { spacing, radii } from '../tokens';
-import type { ColorToken, SpacingToken, RadiusToken } from '../tokens';
+import { spacing, radii, shadows } from '../tokens';
+import type {
+  ColorToken,
+  SpacingToken,
+  RadiusToken,
+  ShadowToken,
+} from '../tokens';
 
 export const useColors = () => useContext(ThemeContext).colors;
 
@@ -22,4 +27,9 @@ export const getColor = (
 ): string | undefined => {
   if (!value) return undefined;
   return colorTokens[value];
+};
+
+export const getShadow = (value?: ShadowToken) => {
+  if (!value) return undefined;
+  return shadows[value];
 };
