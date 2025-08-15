@@ -2,7 +2,7 @@ import { api } from 'backend';
 import { usePaginatedQuery } from 'convex/react';
 import { Image } from 'expo-image';
 
-import { Screen, Stack, Box, Text, List } from '../ui/primitives';
+import { Screen, Stack, Box, Text, List, Row, Button } from '../ui/primitives';
 
 const Index = () => {
   const { results, isLoading, loadMore } = usePaginatedQuery(
@@ -54,6 +54,20 @@ const Index = () => {
             onEndReachedThreshold={0.5}
           />
         )}
+        <Row justify='space-evenly'>
+          <Button
+            label='Stuff'
+            size='lg'
+            variant='primary'
+            onPress={() => console.log('Stuff')}
+          />
+          <Button
+            label='Things'
+            size='lg'
+            variant='secondary'
+            onPress={() => console.log('Things')}
+          />
+        </Row>
       </Stack>
     </Screen>
   );

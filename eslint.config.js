@@ -139,9 +139,17 @@ export default tseslint.config(
           paths: [
             {
               name: 'react-native',
-              importNames: ['View', 'FlatList', 'Text'],
+              importNames: [
+                'View',
+                'FlatList',
+                'Text',
+                'Pressable',
+                'TouchableHighlight',
+                'TouchableOpacity',
+                'TouchableWithoutFeedback',
+              ],
               message:
-                'Do not import directly. Use primitives (Box/Stack/Row/Text/List). If you need to change internals, do it in mobile/ui/primitives/ folder.',
+                'Do not import directly. Use primitives (Box/Stack/Row/Text/List/Button). If you need to change internals, do it in mobile/ui/primitives/ folder.',
             },
           ],
         },

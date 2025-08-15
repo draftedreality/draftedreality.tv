@@ -1,4 +1,4 @@
-import type { ViewStyle, TextStyle } from 'react-native';
+import type { ViewStyle, TextStyle, PressableProps } from 'react-native';
 
 import type {
   ColorToken,
@@ -57,4 +57,21 @@ export type ListProps<ItemT> = {
 export type ScreenProps = {
   children?: React.ReactNode;
   background?: ColorToken;
+};
+
+export type ButtonProps = {
+  label: string;
+  onPress: PressableProps['onPress'];
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  fill?: boolean;
+  padding?: SpacingToken;
+  paddingHorizontal?: SpacingToken;
+  paddingVertical?: SpacingToken;
+  background?: ColorToken;
+  textColor?: ColorToken;
+  radius?: RadiusToken;
+  borderColor?: ColorToken;
+  borderWidth?: number;
+  disabled?: boolean;
 };
