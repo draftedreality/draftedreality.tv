@@ -141,11 +141,17 @@ export default tseslint.config(
               name: 'react-native',
               importNames: ['View', 'FlatList', 'Text'],
               message:
-                'Do not import directly. Use primitives (Box/Stack/Row/Text/List). If you need to change internals, do it in mobile/ui/primitives.tsx.',
+                'Do not import directly. Use primitives (Box/Stack/Row/Text/List). If you need to change internals, do it in mobile/ui/primitives/ folder.',
             },
           ],
         },
       ],
+    },
+  },
+  {
+    files: ['**/primitives/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': 'off',
     },
   },
   {

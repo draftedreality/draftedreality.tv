@@ -1,0 +1,60 @@
+import type { ViewStyle, TextStyle } from 'react-native';
+
+import type {
+  ColorToken,
+  SpacingToken,
+  RadiusToken,
+  FontSizeToken,
+  FontWeightToken,
+} from '../tokens';
+
+export type BaseLayoutProps = {
+  children?: React.ReactNode;
+  fill?: boolean;
+  padding?: SpacingToken;
+  paddingHorizontal?: SpacingToken;
+  paddingVertical?: SpacingToken;
+  background?: ColorToken;
+  radius?: RadiusToken;
+  borderColor?: ColorToken;
+  borderWidth?: number;
+};
+
+export type StackProps = BaseLayoutProps & {
+  align?: ViewStyle['alignItems'];
+  justify?: ViewStyle['justifyContent'];
+  gap?: SpacingToken;
+};
+
+export type RowProps = BaseLayoutProps & {
+  align?: ViewStyle['alignItems'];
+  justify?: ViewStyle['justifyContent'];
+  gap?: SpacingToken;
+};
+
+export type TextProps = {
+  children?: React.ReactNode;
+  size?: FontSizeToken;
+  weight?: FontWeightToken;
+  color?: ColorToken;
+  align?: TextStyle['textAlign'];
+};
+
+export type ListProps<ItemT> = {
+  data: ReadonlyArray<ItemT>;
+  renderItem: (item: ItemT, index: number) => React.ReactElement | null;
+  keyExtractor?: (item: ItemT, index: number) => string;
+  horizontal?: boolean;
+  gap?: SpacingToken;
+  padding?: SpacingToken;
+  paddingHorizontal?: SpacingToken;
+  paddingVertical?: SpacingToken;
+  fill?: boolean;
+  onEndReached?: () => void;
+  onEndReachedThreshold?: number;
+};
+
+export type ScreenProps = {
+  children?: React.ReactNode;
+  background?: ColorToken;
+};
