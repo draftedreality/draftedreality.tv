@@ -34,14 +34,20 @@ export default defineSchema({
   }),
   leagues: defineTable({
     name: v.string(),
-    status: v.string(),
+    status: v.union(v.literal('inProgress'), v.literal('concluded')),
     seasonId: v.id('seasons'),
-  }),
+    hostId: v.id('users'),
+  }).index('byStatus', ['status']),
   leaguePlayers: defineTable({
-    status: v.string(),
+    inviteStatus: v.union(
+      v.literal('invited'),
+      v.literal('accepted'),
+      v.literal('declined'),
+      v.literal('rescinded')
+    ),
     playerId: v.id('users'),
     leagueId: v.id('leagues'),
-  }),
+  }).index('byPlayerIdByLeagueId', ['playerId', 'leagueId']),
   leaguePicks: defineTable({
     leaguePlayerId: v.id('leaguePlayers'),
     contestantId: v.id('contestants'),
