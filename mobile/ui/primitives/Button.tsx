@@ -2,7 +2,7 @@ import type React from 'react';
 import { Pressable } from 'react-native';
 import type { ViewStyle } from 'react-native';
 
-import type { ColorToken } from '../tokens';
+import type { ColorToken, FontSizeToken } from '../tokens';
 
 import { Text } from './Text';
 import type { ButtonProps } from './types';
@@ -13,7 +13,7 @@ export const Button: React.FC<ButtonProps> = ({
   onPress,
   variant = 'primary',
   size = 'md',
-  fill,
+  fill = false,
   padding,
   paddingHorizontal,
   paddingVertical,
@@ -77,7 +77,7 @@ export const Button: React.FC<ButtonProps> = ({
   const sizePadding = getSizePadding();
 
   const computedButtonStyle: ViewStyle = {
-    flex: fill === true ? 1 : undefined,
+    flex: fill ? 1 : undefined,
     padding: getSpacing(padding),
     paddingHorizontal:
       getSpacing(paddingHorizontal) ?? getSpacing(sizePadding.horizontal),
@@ -92,7 +92,7 @@ export const Button: React.FC<ButtonProps> = ({
     opacity: disabled ? 0.5 : 1,
   };
 
-  const getTextSize = (): 'sm' | 'md' | 'lg' => {
+  const getTextSize = (): FontSizeToken => {
     switch (size) {
       case 'sm':
         return 'sm';

@@ -7,7 +7,7 @@ import { useColors, getSpacing, getRadius, getColor } from './utils';
 
 export const Box: React.FC<BaseLayoutProps> = ({
   children,
-  fill,
+  fill = false,
   padding,
   paddingHorizontal,
   paddingVertical,
@@ -18,7 +18,7 @@ export const Box: React.FC<BaseLayoutProps> = ({
 }) => {
   const colors = useColors();
   const computedStyle: ViewStyle = {
-    flex: fill === true ? 1 : undefined,
+    flex: fill ? 1 : undefined,
     padding: getSpacing(padding),
     paddingHorizontal: getSpacing(paddingHorizontal),
     paddingVertical: getSpacing(paddingVertical),

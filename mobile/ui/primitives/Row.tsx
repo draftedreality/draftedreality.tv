@@ -7,7 +7,7 @@ import { useColors, getSpacing, getRadius, getColor } from './utils';
 
 export const Row: React.FC<RowProps> = ({
   children,
-  fill,
+  fill = false,
   padding,
   paddingHorizontal,
   paddingVertical,
@@ -24,7 +24,7 @@ export const Row: React.FC<RowProps> = ({
     flexDirection: 'row',
     alignItems: align,
     justifyContent: justify,
-    flex: fill === true ? 1 : undefined,
+    flex: fill ? 1 : undefined,
     gap: getSpacing(gap),
     padding: getSpacing(padding),
     paddingHorizontal: getSpacing(paddingHorizontal),

@@ -6,6 +6,7 @@ import type {
   RadiusToken,
   FontSizeToken,
   FontWeightToken,
+  ButtonSizeToken,
 } from '../tokens';
 
 export type BaseLayoutProps = {
@@ -62,7 +63,7 @@ export type ButtonProps = {
   label: string;
   onPress: PressableProps['onPress'];
   variant?: 'primary' | 'secondary' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
+  size?: ButtonSizeToken;
   fill?: boolean;
   padding?: SpacingToken;
   paddingHorizontal?: SpacingToken;

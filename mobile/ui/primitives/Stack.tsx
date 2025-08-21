@@ -7,7 +7,7 @@ import { useColors, getSpacing, getRadius, getColor } from './utils';
 
 export const Stack: React.FC<StackProps> = ({
   children,
-  fill,
+  fill = false,
   padding,
   paddingHorizontal,
   paddingVertical,
@@ -25,7 +25,7 @@ export const Stack: React.FC<StackProps> = ({
     overflow: 'hidden',
     alignItems: align,
     justifyContent: justify,
-    flex: fill === true ? 1 : undefined,
+    flex: fill ? 1 : undefined,
     gap: getSpacing(gap),
     padding: getSpacing(padding),
     paddingHorizontal: getSpacing(paddingHorizontal),
