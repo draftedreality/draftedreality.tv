@@ -7,7 +7,7 @@ export const List = <ItemT,>({
   data,
   renderItem,
   keyExtractor,
-  horizontal,
+  horizontal = false,
   gap,
   padding,
   paddingHorizontal,
@@ -36,9 +36,7 @@ export const List = <ItemT,>({
       ItemSeparatorComponent={() => (
         <View
           style={
-            horizontal === true
-              ? { width: separatorSize }
-              : { height: separatorSize }
+            horizontal ? { width: separatorSize } : { height: separatorSize }
           }
         />
       )}

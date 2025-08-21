@@ -61,6 +61,8 @@ export const fontSizes: Record<FontSizeToken, number> = {
   display: 32,
 };
 
+export type ButtonSizeToken = 'sm' | 'md' | 'lg';
+
 export type FontWeightToken = 'regular' | 'medium' | 'bold';
 
 export const fontWeights: Record<FontWeightToken, '400' | '600' | '700'> = {
